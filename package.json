@@ -1,0 +1,13 @@
+{
+  "name": "dwaynecrooks",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "server": "cd dist && python -m SimpleHTTPServer"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-load-plugins": "^1.1.0"
+  }
+}

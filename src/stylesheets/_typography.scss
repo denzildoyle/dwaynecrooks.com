@@ -1,0 +1,73 @@
+$default-font-family: 'Open Sans', sans-serif;
+$default-type-scale: 1.125;
+$base-line-height: 1.5;
+
+@function font-size($index, $type-scale: $default-type-scale) {
+  $value: pow($type-scale, $index);
+  @return $value * 1rem;
+}
+
+@function line-height($font-size, $line-height: $base-line-height) {
+  @return ceil($font-size/$line-height) * ($line-height/$font-size);
+}
+
+@mixin set-type($index, $type-scale: $default-type-scale, $line-height: $base-line-height) {
+  font-size: font-size($index, $type-scale);
+  line-height: line-height(font-size($index, $type-scale), $line-height);
+}
+
+html {
+  font: normal 100%/#{$base-line-height} $default-font-family;
+}
+
+.yotta, %yotta {
+  @include set-type(7);
+}
+
+.zetta, %zetta {
+  @include set-type(6);
+}
+
+h1, .exa, %exa {
+  @include set-type(5);
+}
+
+h2, .peta, %peta {
+  @include set-type(4)
+}
+
+h3, .tera, %tera {
+  @include set-type(3)
+}
+
+h4, .giga, %giga {
+  @include set-type(2)
+}
+
+h5, .mega, %mega {
+  @include set-type(1);
+}
+
+h6, .kilo, %kilo {
+  @include set-type(0);
+}
+
+small, .milli, %milli {
+  @include set-type(-1);
+}
+
+.micro, %micro {
+  @include set-type(-2);
+}
+
+$space-1: #{$base-line-height / 2}rem;
+$space-2: #{$base-line-height}rem;
+$space-3: #{$base-line-height * 2}rem;
+$space-4: #{$base-line-height * 4}rem;
+
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, dl, dd, figure,
+blockquote, details, hr,
+fieldset, pre, table {
+  margin: 0 0 $space-2;
+}

@@ -1,0 +1,35 @@
+@import 'normalize';
+@import 'breakpoint';
+@import 'functions';
+@import 'mixins';
+@import 'typography';
+
+html, body {
+  height: 100%;
+}
+
+.absolute-center {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.front-matter {
+  padding: $space-1;
+  text-align: center;
+}
+
+.front-matter__title {
+  @extend %yotta;
+  margin-bottom: $space-1;
+}
+
+.front-matter__skills {
+  @extend %mega;
+  margin-bottom: $space-3;
+}
+
+.front-matter__navlist {
+  @include inline-list($space-2);
+}

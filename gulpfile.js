@@ -4,9 +4,14 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync').create();
 
+var env = {
+  development: $.environments.development(),
+  production: $.environments.production()
+}
+
 gulp.task('jade', function() {
   return gulp.src('./src/templates/views/**/*.jade')
-    .pipe($.jade())
+    .pipe($.jade({ locals: { env: env } }))
     .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
 });
@@ -29,6 +34,8 @@ gulp.task('stylesheets', function() {
     .pipe(gulp.dest('./dist/stylesheets'))
     .pipe(browserSync.stream());
 });
+
+gulp.task('build', ['jade', 'stylesheets']);
 
 gulp.task('serve', ['jade', 'stylesheets'], function() {
   browserSync.init({

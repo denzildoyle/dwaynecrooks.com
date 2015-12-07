@@ -12,6 +12,36 @@ $ npm install
 $ gulp
 ```
 
+**Building and publishing the site**
+
+```sh
+$ rm -rf dist node_modules
+$ nvm use
+$ npm install
+$ NODE_ENV=production gulp build
+$ cd dist
+$ git init
+$ REMOTE_URL=`cd .. && git config --get remote.origin.url`
+$ git remote add origin $REMOTE_URL
+
+# If the gh-pages branch isn't on the remote.
+
+# Switch to the gh-pages branch
+$ git checkout --orphan gh-pages
+
+# Otherwise, the gh-pages branch is on the remote.
+
+# Switch to the gh-pages branch
+$ git fetch origin
+$ git checkout gh-pages
+
+# Publish
+$ git add --all
+$ HEAD=`cd .. && git log --pretty="%h" -n1`
+$ git commit -m "Site updated to $HEAD"
+$ git push origin gh-pages
+```
+
 # Resources
 
 - [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)

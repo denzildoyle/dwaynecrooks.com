@@ -35,7 +35,12 @@ gulp.task('stylesheets', function() {
     .pipe(browserSync.stream());
 });
 
-gulp.task('build', ['jade', 'stylesheets']);
+gulp.task('cname', function() {
+  return gulp.src('./src/CNAME')
+    .pipe(gulp.dest('./dist'))
+});
+
+gulp.task('build', ['jade', 'stylesheets', 'cname']);
 
 gulp.task('serve', ['jade', 'stylesheets'], function() {
   browserSync.init({

@@ -1,7 +1,20 @@
 {
-  "name": "dwaynecrooks",
+  "name": "dwaynecrooks.com",
   "version": "0.0.0",
   "private": true,
+  "description": "The personal website for Dwayne Crooks.",
+  "keywords": [
+    "personal website",
+    "software craftsman",
+    "software developer",
+    "micropreneur"
+  ],
+  "author": {
+    "name": "Dwayne Crooks",
+    "email": "me@dwaynecrooks.com",
+    "url": "http://dwaynecrooks.com/"
+  },
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.1.2",
     "breakpoint-sass": "^2.6.1",

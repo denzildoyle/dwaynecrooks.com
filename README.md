@@ -1,6 +1,6 @@
 # About
 
-My personal website.
+The personal website for Dwayne Crooks.
 
 # Notes
 
@@ -56,3 +56,9 @@ $ git push origin gh-pages
 - [PostCSS](https://github.com/postcss/postcss)
  - [Autoprefixer](https://github.com/postcss/autoprefixer)
  - [Font Magician](https://github.com/jonathantneal/postcss-font-magician)
+
+# License
+
+This project is licensed under the MIT license.
+
+See [LICENSE](/LICENSE) for the full license text.

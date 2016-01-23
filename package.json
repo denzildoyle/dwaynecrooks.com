@@ -17,15 +17,23 @@
   "license": "MIT",
   "scripts": {
     "clean": "rimraf dist",
-    "build:html": "npm run jade -- -O config/.jaderc.development",
-    "build:sass": "npm run sass -- --output-style expanded --source-comments --source-map true --source-map-contents true",
+    "copy": "cpy src/CNAME dist",
+    "prebuild": "npm run clean",
+    "build": "npm run build:html && npm run build:css",
+    "build:html": "npm run jade:development",
     "jade": "jade -H -o dist src/templates/views",
-    "sass": "node-sass --indent-type space --indent-width 2 --linefeed lf -o dist/stylesheets --include-path node_modules/normalize.css --include-path node_modules/breakpoint-sass/stylesheets src/stylesheets/index.scss"
+    "jade:development": "npm run jade -- -O config/jade/development.json",
+    "build:css": "npm run sass:development && npm run postcss:development",
+    "sass": "node-sass --indent-type space --indent-width 2 --linefeed lf -o dist/stylesheets --include-path node_modules/normalize.css --include-path node_modules/breakpoint-sass/stylesheets src/stylesheets/index.scss",
+    "sass:development": "npm run sass -- --output-style expanded --source-comments --source-map true --source-map-contents true",
+    "postcss": "postcss -r --local-plugins -u autoprefixer -u postcss-font-magician dist/stylesheets/index.css",
+    "postcss:development": "npm run postcss -- -c config/postcss/development.json"
   },
   "devDependencies": {
     "autoprefixer": "^6.1.2",
     "breakpoint-sass": "^2.6.1",
     "browser-sync": "^2.10.0",
+    "cpy-cli": "^1.0.0",
     "gulp": "^3.9.0",
     "gulp-environments": "^0.1.1",
     "gulp-jade": "^1.1.0",
@@ -35,6 +43,8 @@
     "jade": "^1.11.0",
     "node-sass": "^3.4.2",
     "normalize.css": "^3.0.3",
+    "postcss": "^5.0.14",
+    "postcss-cli": "^2.4.0",
     "postcss-font-magician": "^1.3.0",
     "rimraf": "^2.5.0"
   }

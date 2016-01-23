@@ -8,11 +8,22 @@ The personal website for Dwayne Crooks.
 
 ```sh
 $ nvm use
+
+# Recommended
+$ npm install -g npm
+
 $ npm install
-$ gulp
+
+# Terminal #1
+$ npm run watch
+
+# Terminal #2
+$ npm run server
 ```
 
 **Building and publishing the site**
+
+**Note:** *This section needs to be updated.*
 
 ```sh
 $ rm -rf dist node_modules
@@ -48,7 +59,6 @@ $ git push origin gh-pages
 - [Normalize.css](http://necolas.github.io/normalize.css/)
 - [Node Version Manager](https://github.com/creationix/nvm)
 - [Node](https://nodejs.org/en/)
-- [Gulp](http://gulpjs.com/)
 - [Browsersync](http://www.browsersync.io/)
 - [Jade - Template Engine](http://jade-lang.com/)
 - [Sass](http://sass-lang.com/)

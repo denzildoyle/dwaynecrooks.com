@@ -17,7 +17,8 @@
   "license": "MIT",
   "scripts": {
     "clean": "rimraf dist",
-    "build:html": "jade -H -O .jaderc -o dist src/templates/views"
+    "build:html": "npm run jade -- -O config/.jaderc.development",
+    "jade": "jade -H -o dist src/templates/views"
   },
   "devDependencies": {
     "autoprefixer": "^6.1.2",

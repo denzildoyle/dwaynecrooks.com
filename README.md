@@ -4,53 +4,50 @@ The personal website for Dwayne Crooks.
 
 # Notes
 
-**Building and viewing the site locally**
+**Working on the site locally**
 
 ```sh
+$ git clone https://github.com/dwayne/dwaynecrooks.com.git
+$ cd dwaynecrooks.com
 $ nvm use
-
-# Recommended
-$ npm install -g npm
-
 $ npm install
 
-# Terminal #1
+# Terminal 1
 $ npm run watch
 
-# Terminal #2
+# Terminal 2
 $ npm run server
 ```
 
-**Building and publishing the site**
-
-**Note:** *This section needs to be updated.*
+**Build**
 
 ```sh
-$ rm -rf dist node_modules
-$ nvm use
-$ npm install
-$ NODE_ENV=production gulp build
-$ cd dist
-$ git init
-$ REMOTE_URL=`cd .. && git config --get remote.origin.url`
-$ git remote add origin $REMOTE_URL
+$ npm run build
+```
 
-# If the gh-pages branch isn't on the remote.
+**Deploy**
 
-# Switch to the gh-pages branch
+First time
+
+```sh
 $ git checkout --orphan gh-pages
+$ git rm -rf .
+$ echo "Hello, world!" > index.html
+$ git add .
+$ git commit -m "Initial commit"
+$ git push -u origin gh-pages
+```
 
-# Otherwise, the gh-pages branch is on the remote.
+Other times
 
-# Switch to the gh-pages branch
-$ git fetch origin
-$ git checkout gh-pages
-
-# Publish
-$ git add --all
-$ HEAD=`cd .. && git log --pretty="%h" -n1`
-$ git commit -m "Site updated to $HEAD"
-$ git push origin gh-pages
+```sh
+$ git worktree add ../dwaynecrooks.com-dist gh-pages
+$ cp -r dist/* src/CNAME ../dwaynecrooks.com-dist
+$ pushd ../dwaynecrooks.com-dist
+$ git add .
+$ git commit -m "Site updated to $(git log --pretty="%h" -n1 master)"
+$ git push
+$ popd
 ```
 
 # Resources
@@ -62,7 +59,6 @@ $ git push origin gh-pages
 - [Browsersync](http://www.browsersync.io/)
 - [Jade - Template Engine](http://jade-lang.com/)
 - [Sass](http://sass-lang.com/)
- - [Breakpoint](http://breakpoint-sass.com/)
 - [PostCSS](https://github.com/postcss/postcss)
  - [Autoprefixer](https://github.com/postcss/autoprefixer)
  - [Font Magician](https://github.com/jonathantneal/postcss-font-magician)

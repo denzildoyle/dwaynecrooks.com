@@ -1,8 +1,6 @@
 @import 'normalize';
-@import 'breakpoint';
-@import 'functions';
-@import 'mixins';
 @import 'typography';
+@import 'helpers';
 
 html, body {
   height: 100%;
@@ -16,20 +14,21 @@ html, body {
 }
 
 .front-matter {
-  padding: $space-1;
+  padding: $space-1-2;
   text-align: center;
 }
 
 .front-matter__title {
-  @extend %yotta;
-  margin-bottom: $space-1;
+  @include yotta;
+  margin-bottom: $space-1-2;
 }
 
 .front-matter__skills {
-  @extend %mega;
-  margin-bottom: $space-3;
+  @include mega;
+  margin-bottom: $space-2;
+  font-weight: normal;
 }
 
 .front-matter__navlist {
-  @include inline-list($space-2);
+  @include inline-list($space-1);
 }

@@ -5,9 +5,7 @@
   "description": "The personal website for Dwayne Crooks.",
   "keywords": [
     "personal website",
-    "software craftsman",
-    "software developer",
-    "micropreneur"
+    "software developer"
   ],
   "author": {
     "name": "Dwayne Crooks",
@@ -37,7 +35,6 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.1.2",
-    "breakpoint-sass": "^2.6.1",
     "browser-sync": "^2.11.1",
     "chokidar": "^1.4.2",
     "chokidar-cli": "^1.2.0",

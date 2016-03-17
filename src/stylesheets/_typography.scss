@@ -2,6 +2,22 @@ $default-font-family: 'Open Sans', sans-serif;
 $default-type-scale: 1.125;
 $base-line-height: 1.5;
 
+/* Returns $number raised to $exp. */
+@function pow($number, $exp) {
+  $value: 1;
+  @if $exp > 0 {
+    @for $i from 1 through $exp {
+      $value: $value * $number;
+    }
+  }
+  @else if $exp < 0 {
+    @for $i from 1 through -$exp {
+      $value: $value / $number;
+    }
+  }
+  @return $value;
+}
+
 @function font-size($index, $type-scale: $default-type-scale) {
   $value: pow($type-scale, $index);
   @return $value * 1rem;
@@ -16,58 +32,81 @@ $base-line-height: 1.5;
   line-height: line-height(font-size($index, $type-scale), $line-height);
 }
 
+@mixin yotta {
+  @include set-type(7);
+}
+
+@mixin zetta {
+  @include set-type(6);
+}
+
+@mixin exa {
+  @include set-type(5);
+}
+
+@mixin peta {
+  @include set-type(4);
+}
+
+@mixin tera {
+  @include set-type(3);
+}
+
+@mixin giga {
+  @include set-type(2);
+}
+
+@mixin mega {
+  @include set-type(1);
+}
+
+@mixin kilo {
+  @include set-type(0);
+}
+
 html {
   font: normal 100%/#{$base-line-height} $default-font-family;
 }
 
-.yotta, %yotta {
-  @include set-type(7);
+.yotta {
+  @include yotta;
 }
 
-.zetta, %zetta {
-  @include set-type(6);
+.zetta {
+  @include zetta;
 }
 
-h1, .exa, %exa {
-  @include set-type(5);
+h1, .exa {
+  @include exa;
 }
 
-h2, .peta, %peta {
-  @include set-type(4)
+h2, .peta {
+  @include peta;
 }
 
-h3, .tera, %tera {
-  @include set-type(3)
+h3, .tera {
+  @include tera;
 }
 
-h4, .giga, %giga {
-  @include set-type(2)
+h4, .giga {
+  @include giga;
 }
 
-h5, .mega, %mega {
-  @include set-type(1);
+h5, .mega {
+  @include mega;
 }
 
-h6, .kilo, %kilo {
-  @include set-type(0);
+h6, .kilo {
+  @include kilo;
 }
 
-small, .milli, %milli {
-  @include set-type(-1);
-}
-
-.micro, %micro {
-  @include set-type(-2);
-}
-
-$space-1: #{$base-line-height / 2}rem;
-$space-2: #{$base-line-height}rem;
-$space-3: #{$base-line-height * 2}rem;
-$space-4: #{$base-line-height * 4}rem;
+$space-1-2: #{$base-line-height / 2}rem;
+$space-1: #{$base-line-height}rem;
+$space-2: #{$base-line-height * 2}rem;
 
 h1, h2, h3, h4, h5, h6,
 p, ul, ol, dl, dd, figure,
 blockquote, details, hr,
 fieldset, pre, table {
-  margin: 0 0 $space-2;
+  margin: 0 0 $space-1;
 }

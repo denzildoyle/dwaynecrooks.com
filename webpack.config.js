@@ -1,0 +1,48 @@
+'use strict';
+
+var path = require('path')
+
+var CopyWebpackPlugin = require('copy-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+
+module.exports = {
+  context: path.resolve(__dirname, 'src'),
+  entry: './index',
+  output: {
+    filename: 'index.js',
+    path: path.resolve(__dirname, 'public')
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.jade$/,
+        include: /templates\/views/,
+        loader: 'file?name=[name].html!jade-html'
+      },
+      {
+        test: /\.scss$/,
+        include: /styles/,
+        loader: ExtractTextPlugin.extract('style', 'css!postcss!sass')
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['', '.js', '.jade', '.scss']
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, 'public'),
+    inline: true
+  },
+  postcss: [
+    require('postcss-font-magician'),
+    require('autoprefixer')({
+      browsers: ['last 2 versions']
+    })
+  ],
+  plugins: [
+    new CopyWebpackPlugin([
+      { from: 'CNAME' }
+    ]),
+    new ExtractTextPlugin('styles.css')
+  ]
+}

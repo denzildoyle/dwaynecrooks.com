@@ -1,0 +1,44 @@
+$default-font-family: 'Open Sans', sans-serif;
+$default-line-height: 1.5;
+$default-type-scale: 1.125;
+
+$fs-1: 1rem;
+$fs-2: $fs-1 * $default-type-scale;
+$fs-3: $fs-2 * $default-type-scale;
+$fs-4: $fs-3 * $default-type-scale;
+$fs-5: $fs-4 * $default-type-scale;
+$fs-6: $fs-5 * $default-type-scale;
+$fs-7: $fs-6 * $default-type-scale;
+$fs-8: $fs-7 * $default-type-scale;
+
+.fs-1 {
+  font-size: $fs-1;
+}
+
+.fs-2 {
+  font-size: $fs-2;
+}
+
+.fs-3 {
+  font-size: $fs-3;
+}
+
+.fs-4 {
+  font-size: $fs-4;
+}
+
+.fs-5 {
+  font-size: $fs-5;
+}
+
+.fs-6 {
+  font-size: $fs-6;
+}
+
+.fs-7 {
+  font-size: $fs-7;
+}
+
+.fs-8 {
+  font-size: $fs-8;
+}

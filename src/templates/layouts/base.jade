@@ -6,8 +6,9 @@ html(lang="en")
     title Dwayne Crooks
     meta(name="description" content="The personal website for Dwayne Crooks.")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(rel="stylesheet" href="/stylesheets/index.css")
+    link(rel="stylesheet" href="/styles.css")
   body
     block content
     if env == 'production'
       include ../includes/ga
+    script(src="/index.js")

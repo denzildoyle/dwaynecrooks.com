@@ -33,13 +33,17 @@ module.exports = {
       {
         test: /\.scss$/,
         include: /styles/,
-        loader: ExtractTextPlugin.extract('style', 'css!postcss!sass')
+        loader: ExtractTextPlugin.extract(
+          'style',
+          'css?sourceMap!postcss!sass?sourceMap'
+        )
       }
     ]
   },
   resolve: {
     extensions: ['', '.js', '.jade', '.scss']
   },
+  devtool: 'inline-source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
     inline: true

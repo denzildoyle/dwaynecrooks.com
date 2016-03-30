@@ -5,6 +5,21 @@ var path = require('path')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
+function jadeLoader() {
+  var qs = require('querystring')
+  var options = {}
+
+  if (process.env.NODE_ENV === 'production') {
+    options.env = 'production'
+  }
+
+  return {
+    test: /\.jade$/,
+    include: /templates\/views/,
+    loader: 'file?name=[name].html!jade-html?' + qs.stringify(options)
+  }
+}
+
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: './index',
@@ -14,11 +29,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      {
-        test: /\.jade$/,
-        include: /templates\/views/,
-        loader: 'file?name=[name].html!jade-html'
-      },
+      jadeLoader(),
       {
         test: /\.scss$/,
         include: /styles/,

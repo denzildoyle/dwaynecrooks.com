@@ -20,6 +20,10 @@ Navigate to http://localhost:8080/ to view.
 
 ```sh
 $ npm run build
+
+# or
+
+$ npm run build:production
 ```
 
 **Deploy**

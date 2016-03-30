@@ -26,7 +26,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "jade": "^1.11.0",
-    "jade-html-loader": "0.0.3",
+    "jade-html-loader": "git://github.com/bline/jade-html-loader.git#500b4e52",
     "node-sass": "^3.4.2",
     "postcss": "^5.0.14",
     "postcss-font-magician": "^1.4.0",

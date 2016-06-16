@@ -1,0 +1,24 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    adsf (1.2.1)
+      rack (>= 1.0.0)
+    colored (1.2)
+    cri (2.7.0)
+      colored (~> 1.2)
+    nanoc (4.2.0)
+      cri (~> 2.3)
+    rack (1.6.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  adsf
+  nanoc
+
+RUBY VERSION
+   ruby 2.3.1p112
+
+BUNDLED WITH
+   1.12.5

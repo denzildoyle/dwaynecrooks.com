@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="/stylesheet.css">
   </head>
   <body>
+    <!-- Show only in development environment -->
+    <div>
+      <h1>Development</h1>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/writing">Writing</a></li>
+        <li><a href="/drafts">Drafts</a></li>
+      </ul>
+    </div>
+
     <%= yield %>
   </body>
 </html>

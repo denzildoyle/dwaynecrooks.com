@@ -4,3 +4,4 @@ ruby '~> 2.3.0'
 
 gem 'nanoc'
 gem 'adsf'
+gem 'guard-nanoc'

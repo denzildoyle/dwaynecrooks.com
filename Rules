@@ -1,28 +1,60 @@
 #!/usr/bin/env ruby
 
-compile '/**/*.html' do
-  layout '/default.*'
+require 'pry-byebug'
+
+# TODO: Only generate drafts in the development environment
+
+compile '/pages/writing.html' do
+  layout '/writing.*'
+  layout '/base.*'
 end
 
-# This is an example rule that matches Markdown (.md) files, and filters them
-# using the :kramdown filter. It is commented out by default, because kramdown
-# is not bundled with Nanoc or Ruby.
-#
-#compile '/**/*.md' do
-#  filter :kramdown
-#  layout '/default.*'
-#end
+compile '/pages/**/*.html' do
+  layout '/base.*'
+end
 
-route '/**/*.{html,md}' do
-  if item.identifier =~ '/index.*'
+route '/pages/**/*.html' do
+  if item.identifier =~ '/pages/index.*'
     '/index.html'
   else
-    item.identifier.without_ext + '/index.html'
+    item.identifier.without_ext.gsub(%r{\A/pages}, '') + '/index.html'
   end
 end
 
+compile '/blog/**/*.md' do
+  filter :commonmarker
+
+  if item.identifier =~ %r{\A/blog/posts}
+    layout '/post.*'
+    layout '/writing.*'
+  else
+    layout '/draft.*'
+  end
+
+  layout '/base.*'
+
+  id = item.identifier.without_ext
+  if item.identifier =~ %r{\A/blog/posts}
+    id.gsub!(%r{\A/blog/posts}, '/writing')
+  else
+    id.gsub!(%r{\A/blog}, '')
+  end
+
+  write id + '/index.html'
+end
+
 compile '/**/*' do
-  write item.identifier.to_s
+  # Allows me to group similar items into directories
+  # without including the directory name in the final
+  # output path
+  # And, I can still leave items at the top-level
+  #
+  # For e.g.
+  #
+  # /assets/stylesheets/all.css -> /stylesheets/all.css
+  # /public/robots.txt -> /robots.txt
+  # CNAME -> CNAME
+  write item.identifier.to_s.gsub(%r{\A/[^/]+(?=/)}, '')
 end
 
 layout '/**/*', :erb

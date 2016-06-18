@@ -1,0 +1,27 @@
+<header>
+  <% if item.path == '/writing/' %>
+  <a href="/">
+  <% else %>
+  <a href="/writing" title="Read more of my writing">
+  <% end %>
+    <img src="http://placehold.it/50x50" alt="A picture of Dwayne">
+  </a>
+  <p>
+    Thoughts on software development and whatnot by
+    <a href="/">Dwayne Crooks</a>.
+  </p>
+</header>
+
+<%= yield %>
+
+<footer>
+  <p>
+    Copyright &copy; 2016
+    <a href="/">Dwayne Crooks</a>.
+  </p>
+  <ul>
+    <li><a href="https://github.com/dwayne" target="_blank">GitHub</a></li>
+    <li><a href="https://twitter.com/dwaynecrooks" target="_blank">Twitter</a></li>
+    <li><a href="mailto:me@dwaynecrooks.com" target="_blank">Email</a></li>
+  </ul>
+</footer>

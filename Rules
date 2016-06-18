@@ -5,6 +5,7 @@ require 'pry-byebug'
 # TODO: Only generate drafts in the development environment
 
 compile '/pages/writing.html' do
+  filter :erb
   layout '/writing.*'
   layout '/base.*'
 end

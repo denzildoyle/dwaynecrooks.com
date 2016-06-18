@@ -1,53 +1,14 @@
 <section>
-  <!-- TODO: Generate dynamically -->
+  <% sorted_posts.each do |post| %>
   <article>
     <header>
-      <h1>A post title</h1>
-      <time>June 17th, 2016</time>
+      <h1><%= post[:title] %></h1>
+      <%= time_tag(post[:published_at]) %>
     </header>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      <a href="/writing/a-post-title">Continue reading...</a>
+      <%= excerpt(post) %>
+      <a href="<%= post.path %>">Continue reading...</a>
     </p>
   </article>
-  <article>
-    <header>
-      <h1>A post title</h1>
-      <time>June 17th, 2016</time>
-    </header>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      <a href="/writing/a-post-title">Continue reading...</a>
-    </p>
-  </article>
-  <article>
-    <header>
-      <h1>A post title</h1>
-      <time>June 17th, 2016</time>
-    </header>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      <a href="/writing/a-post-title">Continue reading...</a>
-    </p>
-  </article>
-  <article>
-    <header>
-      <h1>A post title</h1>
-      <time>June 17th, 2016</time>
-    </header>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      <a href="/writing/a-post-title">Continue reading...</a>
-    </p>
-  </article>
-  <article>
-    <header>
-      <h1>A post title</h1>
-      <time>June 17th, 2016</time>
-    </header>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      <a href="/writing/a-post-title">Continue reading...</a>
-    </p>
-  </article>
+  <% end %>
 </section>

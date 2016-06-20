@@ -24,6 +24,7 @@ end
 
 compile '/blog/**/*.md' do
   filter :commonmarker
+  filter :colorize_syntax, default_colorizer: :rouge
 
   if item.identifier =~ %r{\A/blog/posts}
     layout '/post.*'

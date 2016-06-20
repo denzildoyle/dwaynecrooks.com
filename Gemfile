@@ -2,10 +2,19 @@ source 'https://rubygems.org'
 
 ruby '~> 2.3.0'
 
-gem 'nanoc'
+# Core
 gem 'adsf'
-gem 'guard-nanoc'
+gem 'nanoc'
+
+# Markdown
 gem 'commonmarker'
-gem 'pry-byebug'
+
+# Syntax highlighting
 gem 'nokogiri'
 gem 'rouge'
+
+# Debugging
+gem 'pry-byebug'
+
+# Automating workflow
+gem 'guard-nanoc'

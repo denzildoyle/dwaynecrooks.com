@@ -17,4 +17,5 @@ gem 'rouge'
 gem 'pry-byebug'
 
 # Automating workflow
+gem 'foreman'
 gem 'guard-nanoc'

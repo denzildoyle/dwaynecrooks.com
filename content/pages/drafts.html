@@ -1,10 +1,12 @@
 <h1>Drafts</h1>
 
-<!-- TODO: Generate dynamically -->
+<% drafts = sorted_drafts %>
+<% if drafts.any? %>
 <ul>
-  <li><a href="/drafts/a-draft-title">A draft 1</a></li>
-  <li><a href="/drafts/a-draft-title">A draft 2</a></li>
-  <li><a href="/drafts/a-draft-title">A draft 3</a></li>
-  <li><a href="/drafts/a-draft-title">A draft 4</a></li>
-  <li><a href="/drafts/a-draft-title">A draft 5</a></li>
+  <% drafts.each do |draft| %>
+  <li><a href="<%= draft.path %>"><%= draft[:title] %></a></li>
+  <% end %>
 </ul>
+<% else %>
+<p>There are no drafts. Why don't you write something?</p>
+<% end %>

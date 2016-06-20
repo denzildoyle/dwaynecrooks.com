@@ -24,6 +24,7 @@ compile '/pages/writing.html' do
 end
 
 compile '/pages/**/*.html' do
+  filter :erb
   layout '/base.*'
 end
 

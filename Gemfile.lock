@@ -54,6 +54,7 @@ GEM
       byebug (~> 9.0)
       pry (~> 0.10)
     rack (1.6.4)
+    rake (10.4.2)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
@@ -76,6 +77,7 @@ DEPENDENCIES
   nanoc
   nokogiri
   pry-byebug
+  rake
   rouge
 
 RUBY VERSION

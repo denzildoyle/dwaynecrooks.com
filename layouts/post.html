@@ -1,7 +1,7 @@
 <article>
   <header>
     <h1><%= item[:title] %></h1>
-    <time><%= item[:published_at] %></time>
+    <time><%= time_tag(item[:published_at]) %></time>
   </header>
   <%= yield %>
 </article>

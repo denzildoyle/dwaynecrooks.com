@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
-    <title>Dwayne Crooks</title>
+    <title>
+      <% if item[:title] %>
+        <%= "#{item[:title]} - " %>
+      <% end %>
+      <%= config[:site][:title] %>
+    </title>
     <link rel="stylesheet" href="/stylesheets/all.css">
   </head>
   <body>

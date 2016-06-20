@@ -1,5 +1,6 @@
 site:
   title: Dwayne Crooks
+  tracking_id: UA-48307662-1 # Google Analytics Tracking ID
 
 # The syntax to use for patterns in the Rules file. Can be either `"glob"`
 # (default) or `"legacy"`. The former will enable glob patterns, which behave

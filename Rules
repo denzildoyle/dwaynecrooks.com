@@ -2,7 +2,14 @@
 
 require 'pry-byebug'
 
-# TODO: Only generate drafts in the development environment
+preprocess do
+  unless development?
+    items.delete_if do |item|
+      item.identifier =~ %r{\A/blog/drafts} ||
+        item.identifier =~ %r{\A/pages/drafts.html\Z}
+    end
+  end
+end
 
 compile '/pages/writing.html' do
   filter :erb

@@ -79,3 +79,11 @@ task :publish, [:slug] do |t, args|
     puts 'No unique draft post exists. Please try again with a different slug.'
   end
 end
+
+desc 'Remove unnecessary files and directories'
+task :clean do
+  paths = %w(output tmp crash.log).map do |name|
+    File.expand_path(name, ROOT_DIR)
+  end
+  rm_rf paths
+end

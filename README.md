@@ -8,6 +8,8 @@ Set up the project and start the processes
 
 ```sh
 $ cd $PROJECT_ROOT
+$ nvm use
+$ npm install
 $ bundle install
 $ bundle exec foreman start
 ```

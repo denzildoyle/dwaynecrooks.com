@@ -1,3 +1,5 @@
+content/assets/stylesheets/
+node_modules/
 output/
 tmp/
 *.log

@@ -1,12 +1,27 @@
-<p>Read my <a href="/writing">writing</a>.</p>
+<p class="mb4 center italic">Read my <a href="/writing">writing</a>.</p>
 
-<div>
-  <%= gravatar(config[:site][:email], 150, 'A picture of Dwayne') %>
+<div class="mb4 center">
+  <%= gravatar(config[:site][:email], 150, class: 'circle', alt: 'A picture of Dwayne') %>
   <h1>Dwayne Crooks</h1>
   <p>A little something about me...</p>
-  <ul>
-    <li><a href="https://github.com/dwayne" target="_blank">GitHub</a></li>
-    <li><a href="https://twitter.com/dwaynecrooks" target="_blank">Twitter</a></li>
-    <li><a href="mailto:me@dwaynecrooks.com" target="_blank">Email</a></li>
-  </ul>
 </div>
+
+<footer class="center">
+  <ul class="list-reset">
+    <li class="inline-block mr1">
+      <a href="https://github.com/dwayne" target="_blank" title="Me on GitHub">
+        GitHub
+      </a>
+    </li>
+    <li class="inline-block mr1">
+      <a href="https://twitter.com/dwaynecrooks" target="_blank" title="Me on Twitter">
+        Twitter
+      </a>
+    </li>
+    <li class="inline-block">
+      <a href="mailto:me@dwaynecrooks.com" target="_blank" title="Ask me anything">
+        Email
+      </a>
+    </li>
+  </ul>
+</footer>

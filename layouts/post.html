@@ -1,7 +1,11 @@
-<article>
-  <header>
-    <h1><%= item[:title] %></h1>
-    <time><%= time_tag(item[:published_at]) %></time>
-  </header>
-  <%= yield %>
-</article>
+<div class="my4 max-width-3 mx-auto">
+  <article class="Post">
+    <header>
+      <h1 class="mb2 fs-large"><%= item[:title] %></h1>
+      <div class="light-gray"><%= time_tag(item[:published_at]) %></div>
+    </header>
+    <div class="Post__body">
+      <%= yield %>
+    </div>
+  </article>
+</div>

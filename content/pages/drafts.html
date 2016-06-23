@@ -1,12 +1,14 @@
-<h1>Drafts</h1>
+<div class="mx2">
+  <h1>Drafts</h1>
 
-<% drafts = sorted_drafts %>
-<% if drafts.any? %>
-<ul>
-  <% drafts.each do |draft| %>
-  <li><a href="<%= draft.path %>"><%= draft[:title] %></a></li>
+  <% drafts = sorted_drafts %>
+  <% if drafts.any? %>
+  <ul>
+    <% drafts.each do |draft| %>
+    <li><a href="<%= draft.path %>"><%= draft[:title] %></a></li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>There are no drafts. Why don't you write something?</p>
   <% end %>
-</ul>
-<% else %>
-<p>There are no drafts. Why don't you write something?</p>
-<% end %>
+</div>

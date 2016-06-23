@@ -18,9 +18,11 @@ require 'time'
 
 def slugify(s)
   # 1. Convert all letters to lowercase
-  # 2. Convert spaces to hyphens
-  # 3. Remove unwanted characters
+  # 2. Remove any existing hyphens
+  # 3. Convert spaces to hyphens
+  # 4. Remove unwanted characters
   s.downcase
+   .gsub(/-/, '')
    .gsub(/\s+/, '-')
    .gsub(/[^a-z0-9\-_]/, '')
 end

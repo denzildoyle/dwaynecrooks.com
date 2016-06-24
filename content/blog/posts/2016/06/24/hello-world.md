@@ -9,7 +9,7 @@ and Tobago.
 
 Welcome!
 
-Here you'd find my writings on software development and possibly other random
-things that may interest me from time to time.
+Here you'd find posts on software development and possibly other random things
+that may interest me from time to time.
 
 Stay tuned for more.

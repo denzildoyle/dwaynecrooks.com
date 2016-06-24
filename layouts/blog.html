@@ -1,0 +1,41 @@
+<div class="<%= development? ? '' : 'mt2' %> mx2">
+  <header class="center">
+    <% if item.path == '/blog/' %>
+    <a href="/">
+    <% else %>
+    <a href="/blog" title="Read more posts">
+    <% end %>
+      <%= gravatar(config[:site][:email], 75, class: 'circle', alt: 'A picture of Dwayne') %>
+    </a>
+    <p>
+      My blog on software development and whatnot by
+      <a href="/">Dwayne Crooks</a>.
+    </p>
+  </header>
+
+  <%= yield %>
+
+  <footer class="center">
+    <p>
+      Copyright &copy; 2016
+      <a href="/">Dwayne Crooks</a>.
+    </p>
+    <ul class="list-reset">
+      <li class="inline-block mr1">
+        <a href="https://github.com/dwayne" target="_blank" title="Me on GitHub">
+          GitHub
+        </a>
+      </li>
+      <li class="inline-block mr1">
+        <a href="https://twitter.com/dwaynecrooks" target="_blank" title="Me on Twitter">
+          Twitter
+        </a>
+      </li>
+      <li class="inline-block">
+        <a href="mailto:me@dwaynecrooks.com" target="_blank" title="Ask me anything">
+          Email
+        </a>
+      </li>
+    </ul>
+  </footer>
+</div>

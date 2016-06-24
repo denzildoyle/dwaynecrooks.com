@@ -1,0 +1,76 @@
+#!/usr/bin/env ruby
+
+require 'pry-byebug'
+
+preprocess do
+  unless development?
+    items.delete_if do |item|
+      item.identifier =~ %r{\A/blog/drafts} ||
+        item.identifier =~ %r{\A/pages/drafts.html\Z}
+    end
+  end
+
+  # We only track the dates for local organizational purposes, hence we map
+  # /blog/posts/yyyy/mm/dd/slug.md -> /blog/posts/slug.md
+  items.find_all(%r{\A/blog/posts}).each do |item|
+    item.identifier = item.identifier.to_s.gsub(%r{/\d{4}/\d{2}/\d{2}}, '')
+  end
+end
+
+compile '/pages/blog.html' do
+  filter :erb
+  layout '/blog.*'
+  layout '/base.*'
+end
+
+compile '/pages/**/*.html' do
+  filter :erb
+  layout '/base.*'
+end
+
+route '/pages/**/*.html' do
+  if item.identifier =~ '/pages/index.*'
+    '/index.html'
+  else
+    item.identifier.without_ext.gsub(%r{\A/pages}, '') + '/index.html'
+  end
+end
+
+compile '/blog/**/*.md' do
+  filter :commonmarker
+  filter :colorize_syntax, default_colorizer: :rouge
+
+  if item.identifier =~ %r{\A/blog/posts}
+    layout '/post.*'
+    layout '/blog.*'
+  else
+    layout '/draft.*'
+  end
+
+  layout '/base.*'
+
+  id = item.identifier.without_ext
+  if item.identifier =~ %r{\A/blog/posts}
+    id.gsub!(%r{\A/blog/posts}, '/blog')
+  else
+    id.gsub!(%r{\A/blog}, '')
+  end
+
+  write id + '/index.html'
+end
+
+compile '/**/*' do
+  # Allows me to group similar items into directories
+  # without including the directory name in the final
+  # output path
+  # And, I can still leave items at the top-level
+  #
+  # For e.g.
+  #
+  # /assets/stylesheets/all.css -> /stylesheets/all.css
+  # /public/robots.txt -> /robots.txt
+  # CNAME -> CNAME
+  write item.identifier.to_s.gsub(%r{\A/[^/]+(?=/)}, '')
+end
+
+layout '/**/*', :erb

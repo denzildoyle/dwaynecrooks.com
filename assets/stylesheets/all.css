@@ -1,0 +1,32 @@
+@import "normalize.css";
+@import "basscss";
+
+body {
+  color: #333;
+  overflow-y: scroll;
+}
+
+.light-gray {
+  color: #bbb;
+}
+
+.fs-large {
+  font-size: 3em;
+}
+
+.Excerpt {
+  line-height: 1.5;
+}
+
+.Post__body {
+  line-height: 1.5;
+}
+
+.Post__body p, .Post__body pre, .Post__body blockquote {
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.Post__body img {
+  max-width: 100%;
+}

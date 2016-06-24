@@ -1,0 +1,19 @@
+<% posts = sorted_posts %>
+<% if posts.any? %>
+<div class="max-width-3 mx-auto">
+  <section class="my4">
+    <% posts.each do |post| %>
+    <article class="mb4">
+      <header>
+        <h1 class="mb1"><%= post[:title] %></h1>
+        <div class="light-gray"><%= time_tag(post[:published_at]) %></div>
+      </header>
+      <p class="Excerpt mt3 mb0">
+        <%= excerpt(post) %>
+        <a href="<%= post.path %>">Continue reading...</a>
+      </p>
+    </article>
+    <% end %>
+  </section>
+</div>
+<% end %>

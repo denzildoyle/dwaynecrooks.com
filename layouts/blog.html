@@ -1,14 +1,14 @@
 <div class="<%= development? ? '' : 'mt2' %> mx2">
   <header class="center">
-    <% if item.path == '/writing/' %>
+    <% if item.path == '/blog/' %>
     <a href="/">
     <% else %>
-    <a href="/writing" title="Read more of my writing">
+    <a href="/blog" title="Read more posts">
     <% end %>
       <%= gravatar(config[:site][:email], 75, class: 'circle', alt: 'A picture of Dwayne') %>
     </a>
     <p>
-      Thoughts on software development and whatnot by
+      My blog on software development and whatnot by
       <a href="/">Dwayne Crooks</a>.
     </p>
   </header>

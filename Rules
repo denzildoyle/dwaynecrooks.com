@@ -17,9 +17,9 @@ preprocess do
   end
 end
 
-compile '/pages/writing.html' do
+compile '/pages/blog.html' do
   filter :erb
-  layout '/writing.*'
+  layout '/blog.*'
   layout '/base.*'
 end
 
@@ -42,7 +42,7 @@ compile '/blog/**/*.md' do
 
   if item.identifier =~ %r{\A/blog/posts}
     layout '/post.*'
-    layout '/writing.*'
+    layout '/blog.*'
   else
     layout '/draft.*'
   end
@@ -51,7 +51,7 @@ compile '/blog/**/*.md' do
 
   id = item.identifier.without_ext
   if item.identifier =~ %r{\A/blog/posts}
-    id.gsub!(%r{\A/blog/posts}, '/writing')
+    id.gsub!(%r{\A/blog/posts}, '/blog')
   else
     id.gsub!(%r{\A/blog}, '')
   end

@@ -1,6 +1,6 @@
 # About
 
-The personal website for Dwayne Crooks.
+The personal website and blog for Dwayne Crooks.
 
 ## Workflow
 

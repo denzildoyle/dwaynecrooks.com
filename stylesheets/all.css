@@ -916,6 +916,10 @@ body{
   margin-bottom:2rem;
 }
 
+.Post__body pre{
+  overflow-x:auto;
+}
+
 .Post__body img{
   max-width:100%;
 }

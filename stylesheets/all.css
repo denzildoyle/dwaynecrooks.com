@@ -917,6 +917,8 @@ body{
 }
 
 .Post__body pre{
+  padding:.5rem;
+  background-color:#eee;
   overflow-x:auto;
 }
 

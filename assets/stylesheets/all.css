@@ -16,6 +16,10 @@ body {
   font-size: 3em;
 }
 
+.Intro {
+  line-height: 1.5;
+}
+
 .Excerpt {
   line-height: 1.5;
 }

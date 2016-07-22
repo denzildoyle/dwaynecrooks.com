@@ -9,8 +9,12 @@ Set up the project and start the processes
 ```sh
 $ cd $PROJECT_ROOT
 $ nvm use
+
 $ npm install
 $ bundle install
+
+$ rm -rf output
+
 $ bundle exec foreman start
 ```
 

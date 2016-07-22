@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="generator" content="Nanoc 4.2.0">
+    <meta name="generator" content="Nanoc 4.2.3">
     <title>
       
         How to install Ruby on Ubuntu 14.04 LTS - 
@@ -24,7 +24,7 @@
       <img class="circle" alt="A picture of Dwayne" src="https://www.gravatar.com/avatar/8e5e8015f4baa06f4de88e4a9de7a601?s=75">
     </a>
     <p>
-      My blog on software development, Ruby, Rails, React, Redux and whatnot.
+      My blog on software development, Python, Django, Ruby, React, Redux and whatnot.
     </p>
   </header>
 
@@ -47,7 +47,7 @@ replace all three tools but I prefer to use <a href="https://www.amazon.com/UNIX
 <h2>Install rbenv</h2>
 <p><strong>NOTE:</strong> <em>You'd need to have <a href="https://git-scm.com/">Git</a> installed to follow
 this process. Go here to see <a href="/blog/how-to-install-and-configure-git-on-ubuntu-1404-lts">how to install and configure Git on Ubuntu 14.04 LTS</a>.</em></p>
-<pre><code class="language-bash highlight"><span class="gp">$ </span>git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+<pre><code class="language-bash"><span class="gp">$ </span>git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 <span class="gp">$ </span><span class="nb">echo</span> <span class="s1">'export PATH="$HOME/.rbenv/bin:$PATH"'</span> &gt;&gt; ~/.bashrc
 <span class="gp">$ </span><span class="nb">echo</span> <span class="s1">'eval "$(rbenv init -)"'</span> &gt;&gt; ~/.bashrc
 <span class="gp">$ </span>. ~/.bashrc
@@ -61,9 +61,9 @@ rbenv is a <span class="k">function</span></code></pre>
 <a href="https://github.com/rbenv/rbenv">rbenv</a> handles that task. Let's install it and
 then we'd be able to use <code>rbenv install</code> to install the version of Ruby we want
 to use.</p>
-<pre><code class="language-bash highlight"><span class="gp">$ </span>git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build</code></pre>
+<pre><code class="language-bash"><span class="gp">$ </span>git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build</code></pre>
 <p>Now, let's list the available Ruby versions and install one of them.</p>
-<pre><code class="language-bash highlight"><span class="gp">$ </span>rbenv install --list
+<pre><code class="language-bash"><span class="gp">$ </span>rbenv install --list
 Available versions:
   1.9.3-p551
   2.3.1
@@ -85,21 +85,21 @@ Available versions:
 <span class="c"># Ensure all shims are in-place</span>
 <span class="gp">$ </span>rbenv rehash</code></pre>
 <h2>Upgrade RubyGems</h2>
-<pre><code class="language-bash highlight"><span class="gp">$ </span>gem update --system</code></pre>
+<pre><code class="language-bash"><span class="gp">$ </span>gem update --system</code></pre>
 <h2>Install Bundler</h2>
-<pre><code class="language-bash highlight"><span class="gp">$ </span>gem install bundler</code></pre>
+<pre><code class="language-bash"><span class="gp">$ </span>gem install bundler</code></pre>
 <h2>An example</h2>
 <p>Create a directory and <code>cd</code> into it.</p>
-<pre><code class="language-bash highlight"><span class="gp">$ </span>mkdir first <span class="o">&amp;&amp;</span> <span class="nb">cd </span>first</code></pre>
+<pre><code class="language-bash"><span class="gp">$ </span>mkdir first <span class="o">&amp;&amp;</span> <span class="nb">cd </span>first</code></pre>
 <p>Add a <code>Gemfile</code>.</p>
-<pre><code class="language-rb highlight"><span class="c1"># Gemfile</span>
+<pre><code class="language-rb"><span class="c1"># Gemfile</span>
 
 <span class="n">source</span> <span class="s2">"https://rubygems.org"</span>
 
 <span class="n">gem</span> <span class="s2">"roda"</span>
 <span class="n">gem</span> <span class="s2">"rack"</span></code></pre>
 <p>Add a <code>config.ru</code>.</p>
-<pre><code class="language-rb highlight"><span class="c1"># config.ru</span>
+<pre><code class="language-rb"><span class="c1"># config.ru</span>
 
 <span class="nb">require</span> <span class="s2">"roda"</span>
 
@@ -111,7 +111,7 @@ Available versions:
 
 <span class="n">run</span> <span class="no">App</span><span class="p">.</span><span class="nf">freeze</span><span class="p">.</span><span class="nf">app</span></code></pre>
 <p>Finally, install the dependencies and run the web application.</p>
-<pre><code class="language-bash highlight"><span class="gp">$ </span>bundle install
+<pre><code class="language-bash"><span class="gp">$ </span>bundle install
 <span class="gp">$ </span>bundle <span class="nb">exec </span>rackup</code></pre>
 <p>Open your browser and navigate to <a href="http://localhost:9292/">http://localhost:9292/</a>. That's it.</p>
 <h2>References</h2>

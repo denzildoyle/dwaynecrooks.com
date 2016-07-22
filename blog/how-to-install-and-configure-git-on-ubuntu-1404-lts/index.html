@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="generator" content="Nanoc 4.2.0">
+    <meta name="generator" content="Nanoc 4.2.3">
     <title>
       
         How to install and configure Git on Ubuntu 14.04 LTS - 
@@ -24,7 +24,7 @@
       <img class="circle" alt="A picture of Dwayne" src="https://www.gravatar.com/avatar/8e5e8015f4baa06f4de88e4a9de7a601?s=75">
     </a>
     <p>
-      My blog on software development, Ruby, Rails, React, Redux and whatnot.
+      My blog on software development, Python, Django, Ruby, React, Redux and whatnot.
     </p>
   </header>
 
@@ -39,52 +39,52 @@
 <h2>Install</h2>
 <p><strong>Note:</strong> <em>The instructions that follow were verified on a 64-bit Ubuntu 14.04.4 LTS system. You can find the latest Ubuntu release <a href="http://releases.ubuntu.com/14.04/">here</a>.</em></p>
 <p>To install Git on Ubuntu we can simply run</p>
-<pre><code class="language-bash highlight"><span class="c"># DO NOT DO THIS, CONTINUE READING BELOW</span>
+<pre><code class="language-bash"><span class="c"># DO NOT DO THIS, CONTINUE READING BELOW</span>
 <span class="gp">$ </span>sudo apt-get update
 <span class="gp">$ </span>sudo apt-get install git</code></pre>
 <p>But, we won't do that since it doesn't install the latest version. See</p>
-<pre><code class="language-bash highlight"><span class="gp">$ </span>apt-cache policy git
+<pre><code class="language-bash"><span class="gp">$ </span>apt-cache policy git
 git:
 Installed: <span class="o">(</span>none<span class="o">)</span>
 Candidate: 1:1.9.1-1ubuntu0.3
 ...</code></pre>
 <p>So, to install the latest version we will instead use the <a href="https://help.launchpad.net/Packaging/PPA">PPA</a> provided by the <a href="https://launchpad.net/%7Egit-core">"Ubuntu Git Maintainers" team</a>.</p>
-<pre><code class="language-bash highlight"><span class="gp">$ </span>sudo add-apt-repository ppa:git-core/ppa
+<pre><code class="language-bash"><span class="gp">$ </span>sudo add-apt-repository ppa:git-core/ppa
 <span class="gp">$ </span>sudo apt-get update</code></pre>
 <p>Now, if we check the version of Git that will be installed we see that it's the latest version.</p>
-<pre><code class="language-bash highlight"><span class="gp">$ </span>apt-cache policy git
+<pre><code class="language-bash"><span class="gp">$ </span>apt-cache policy git
 git:
 Installed: <span class="o">(</span>none<span class="o">)</span>
 Candidate: 1:2.9.0-0ppa1~ubuntu14.04.1
 ...</code></pre>
 <p>This is what we want, so let's install it.</p>
-<pre><code class="language-bash highlight"><span class="gp">$ </span>sudo apt-get install git</code></pre>
+<pre><code class="language-bash"><span class="gp">$ </span>sudo apt-get install git</code></pre>
 <h2>Configure</h2>
 <p>Set your <strong>full name</strong> and <strong>email</strong> to be recorded in new commits.</p>
-<pre><code class="language-bash highlight"><span class="gp">$ </span>git config --global user.name <span class="s2">"Dwayne R. Crooks"</span>
+<pre><code class="language-bash"><span class="gp">$ </span>git config --global user.name <span class="s2">"Dwayne R. Crooks"</span>
 <span class="gp">$ </span>git config --global user.email <span class="s2">"me@dwaynecrooks.com"</span></code></pre>
 <p>Set the default text editor that Git will use when it needs you to type in a message or otherwise.</p>
-<pre><code class="language-bash highlight"><span class="gp">$ </span>git config --global core.editor <span class="s2">"atom -nw"</span>
+<pre><code class="language-bash"><span class="gp">$ </span>git config --global core.editor <span class="s2">"atom -nw"</span>
 <span class="c"># or</span>
 <span class="gp">$ </span>git config --global core.editor <span class="s2">"nano -iT 2"</span></code></pre>
 <p>Add some useful aliases.</p>
-<pre><code class="language-bash highlight"><span class="gp">$ </span>git config --global alias.br branch
+<pre><code class="language-bash"><span class="gp">$ </span>git config --global alias.br branch
 <span class="gp">$ </span>git config --global alias.ci commit
 <span class="gp">$ </span>git config --global alias.co checkout
 <span class="gp">$ </span>git config --global alias.st status
 <span class="gp">$ </span>git config --global alias.hist <span class="s2">"log --pretty=format:</span><span class="se">\"</span><span class="s2">%h %ad | %s%d [%an]</span><span class="se">\"</span><span class="s2"> --graph --date=short"</span></code></pre>
 <p>Aliases allow you to reduce typing. For e.g. instead of typing</p>
-<pre><code class="language-bash highlight"><span class="gp">$ </span>git log --pretty<span class="o">=</span>format:<span class="se">\"</span>%h %ad | %s%d <span class="o">[</span>%an]<span class="se">\"</span> --graph --date<span class="o">=</span>short</code></pre>
+<pre><code class="language-bash"><span class="gp">$ </span>git log --pretty<span class="o">=</span>format:<span class="se">\"</span>%h %ad | %s%d <span class="o">[</span>%an]<span class="se">\"</span> --graph --date<span class="o">=</span>short</code></pre>
 <p>You can now type</p>
-<pre><code class="language-bash highlight"><span class="gp">$ </span>git hist</code></pre>
+<pre><code class="language-bash"><span class="gp">$ </span>git hist</code></pre>
 <p>Finally, tell Git about all the patterns you want it to ignore in all situations.</p>
-<pre><code class="language-bash highlight"><span class="gp">$ </span><span class="nb">echo</span> <span class="s1">'*~'</span> &gt; ~/.gitignore_global
+<pre><code class="language-bash"><span class="gp">$ </span><span class="nb">echo</span> <span class="s1">'*~'</span> &gt; ~/.gitignore_global
 <span class="c"># Backup or temporary files generated by your editor</span>
 <span class="c"># of choice usually go into this file</span>
 
 <span class="gp">$ </span>git config --global core.excludesFile <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.gitignore_global"</span></code></pre>
 <h2>Test</h2>
-<pre><code class="language-bash highlight"><span class="gp">$ </span>mkdir example
+<pre><code class="language-bash"><span class="gp">$ </span>mkdir example
 <span class="gp">$ </span><span class="nb">cd </span>example
 <span class="gp">$ </span><span class="nb">echo</span> <span class="s1">'Hello, world!'</span> &gt; hello
 <span class="gp">$ </span>git init

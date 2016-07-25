@@ -1,25 +1,20 @@
 ---
-title: How to install Ruby on Ubuntu 14.04 LTS
+title: How to install Ruby on Ubuntu
 created_at: 2016-06-28T20:23:01Z
 published_at: 2016-06-28T22:37:22Z
 ---
 
-[Ruby](https://www.ruby-lang.org) is a dynamically typed, object-oriented, open
-source programming language with a focus on simplicity and productivity.
-However, it can be quite challenging to get Ruby installed and set up correctly.
-So, for my future self let me walk through my process.
+[Ruby](https://www.ruby-lang.org) is a dynamically typed, object-oriented, open source programming language with a focus on simplicity and productivity. However, it can be quite challenging to get Ruby installed and set up correctly. So, in this post, I'd walk you through how I do it using Ubuntu 14.04 LTS.
 
 ## Tools
 
-I use [rbenv](https://github.com/rbenv/rbenv),
+I'll be using [rbenv](https://github.com/rbenv/rbenv),
 [ruby-build](https://github.com/rbenv/ruby-build) and
-[Bundler](http://bundler.io/). There is also [rvm](http://rvm.io/) which can
-replace all three tools but I prefer to use [applications that do one thing well](https://www.amazon.com/UNIX-Philosophy-Mike-Gancarz-ebook/dp/B002OL2G4G).
+[Bundler](http://bundler.io/). Alternatives to [rbenv](https://github.com/rbenv/rbenv) include [rvm](http://rvm.io/) and [chruby](https://github.com/postmodern/chruby) but I won't be talking about those today.
 
 ## Install rbenv
 
-**NOTE:** *You'd need to have [Git](https://git-scm.com/) installed to follow
-this process. Go here to see [how to install and configure Git on Ubuntu 14.04 LTS](/blog/how-to-install-and-configure-git-on-ubuntu-1404-lts).*
+**N.B.** *You'd need to have [Git](https://git-scm.com/) installed to follow this process. Go here to see [how to install and configure Git on Ubuntu ](/blog/how-to-install-and-configure-git-on-ubuntu).*
 
 ```bash
 $ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
@@ -36,10 +31,7 @@ For more details you can read [here](https://github.com/rbenv/rbenv#basic-github
 
 ## Install Ruby
 
-The [ruby-build](https://github.com/rbenv/ruby-build) plugin for
-[rbenv](https://github.com/rbenv/rbenv) handles that task. Let's install it and
-then we'd be able to use `rbenv install` to install the version of Ruby we want
-to use.
+The [ruby-build](https://github.com/rbenv/ruby-build) plugin for [rbenv](https://github.com/rbenv/rbenv) handles that task. Let's install it and then we'd be able to use `rbenv install` to install the version of Ruby we want to use.
 
 ```bash
 $ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
@@ -93,7 +85,7 @@ $ mkdir first && cd first
 
 Add a `Gemfile`.
 
-```rb
+```ruby
 # Gemfile
 
 source "https://rubygems.org"
@@ -104,7 +96,7 @@ gem "rack"
 
 Add a `config.ru`.
 
-```rb
+```ruby
 # config.ru
 
 require "roda"

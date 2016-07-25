@@ -1,10 +1,10 @@
 ---
-title: Installing Python from source on Ubuntu 14.04 LTS
+title: Installing Python from source on Ubuntu
 created_at: 2016-07-06T09:32:06Z
 published_at: 2016-07-06T11:02:06Z
 ---
 
-For whatever reason you may want to use a different version of Python than what came with your Ubuntu distro. However, completely replacing the system version is not recommended. I will show you how to install Python 2.7.x and 3.5.x for the local user.
+For whatever reason you may want to use a different version of Python than what came with your Ubuntu distro. However, completely replacing the system version is not recommended. I will show you how to install Python 2.7.x and 3.5.x for the local user on Ubuntu 14.04 LTS.
 
 ## Installing Python 2.7.x and/or 3.5.x
 
@@ -77,7 +77,7 @@ $ . .env/bin/activate
 
 ## Python 3.5.x Quick Start
 
-In this case, `pip` is already installed and a built-in alternative to `virtualenv`, called `pyvenv`, is already installed. The most we may have to do is to upgrade `pip` when we first activate a new virtual environment.
+In this case, `pip` is already installed and a built-in alternative to `virtualenv`, called `pyvenv`, is also already installed. The most we may have to do is to upgrade `pip` when we first activate a new virtual environment.
 
 So, let's start a [Django](https://www.djangoproject.com/) project to check that everything works correctly.
 

@@ -1,14 +1,14 @@
 ---
-title: How to install and configure Git on Ubuntu 14.04 LTS
+title: How to install and configure Git on Ubuntu
 created_at: 2016-06-25T09:58:37Z
 published_at: 2016-06-25T11:49:53Z
 ---
 
-[Git](https://git-scm.com/) is a [popular](https://www.google.com/trends/explore#q=%2Fm%2F05vqwg%2C%20%2Fm%2F08441_%2C%20%2Fm%2F012ct9%2C%20%2Fm%2F09d6g&cmpt=q&tz=Etc%2FGMT%2B4) [free and open source](https://git-scm.com/about/free-and-open-source) [distributed version control](https://en.wikipedia.org/wiki/Distributed_version_control) system that is [easy to learn](https://git-scm.com/documentation). I use it daily for software development and you should too.
+[Git](https://git-scm.com/) is a [popular](https://www.google.com/trends/explore#q=%2Fm%2F05vqwg%2C%20%2Fm%2F08441_%2C%20%2Fm%2F012ct9%2C%20%2Fm%2F09d6g&cmpt=q&tz=Etc%2FGMT%2B4) [free and open source](https://git-scm.com/about/free-and-open-source) [distributed version control](https://en.wikipedia.org/wiki/Distributed_version_control) system that is [easy to learn](https://git-scm.com/documentation). I use it for all my projects. In this post, I will show you how to install and configure Git on Ubuntu 14.04 LTS.
 
 ## Install
 
-**Note:** *The instructions that follow were verified on a 64-bit Ubuntu 14.04.4 LTS system. You can find the latest Ubuntu release [here](http://releases.ubuntu.com/14.04/).*
+**N.B.** *The instructions that follow were verified on a 64-bit Ubuntu 14.04.4 LTS system. You can find the latest Ubuntu release [here](http://releases.ubuntu.com/14.04/).*
 
 To install Git on Ubuntu we can simply run
 

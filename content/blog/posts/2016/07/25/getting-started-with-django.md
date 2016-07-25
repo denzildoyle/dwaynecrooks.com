@@ -1,13 +1,14 @@
 ---
-title: Getting Started with Django 1.9
+title: Getting Started with Django
 created_at: 2016-07-22T10:58:59Z
+published_at: 2016-07-25T00:39:08Z
 ---
 
-[Django](https://www.djangoproject.com/) is to [Python](https://www.python.org/) as [Rails](http://rubyonrails.org/) is to [Ruby](https://www.ruby-lang.org). But, way better and less bloated :).
+[Django](https://www.djangoproject.com/) is to [Python](https://www.python.org/) as [Rails](http://rubyonrails.org/) is to [Ruby](https://www.ruby-lang.org). But, way better and less bloated :). In this post, I will show you how to get started with Django on Ubuntu 14.04 LTS.
 
 ## Install Python
 
-The first thing we'd need to do is install Python. Read [here](/blog/installing-python-from-source-on-ubuntu-1404-lts) to find out how to do that.
+The first thing we'd need to do is install Python. Read [here](/blog/installing-python-from-source-on-ubuntu) to find out how to do that.
 
 ## Install Django
 
@@ -24,7 +25,7 @@ $ . .env/bin/activate
 (.env) $ django-admin startproject polls
 ```
 
-Before making anymore changes test that it works and then put everything under [version control](/blog/how-to-install-and-configure-git-on-ubuntu-1404-lts).
+Before making anymore changes test that it works and then put everything under [version control](/blog/how-to-install-and-configure-git-on-ubuntu).
 
 ```bash
 # Test that it all works
@@ -44,13 +45,13 @@ Before making anymore changes test that it works and then put everything under [
 (.env) $ git commit -m "Initial commit"
 ```
 
-I like to do develop incrementally and track complete changes as I make progress. So now that we have the base installation working and tracked let's begin setting up the database.
+Now that we have the base installation working and tracked let's begin setting up the database.
 
 ## Configure PostgreSQL
 
-Django defaults to using [SQLite](http://www.sqlite.org/) but eventually we'd want to host the site on [Heroku](https://www.heroku.com/) and use [PostgreSQL](https://www.postgresql.org/) as the production database. For a [variety of reasons](http://12factor.net/dev-prod-parity), it's not wise to use different databases in different environments. So to avoid future problems let's setup PostgreSQL locally.
+Django defaults to [SQLite](http://www.sqlite.org/) but eventually we'd want to host the site on [Heroku](https://www.heroku.com/) and use [PostgreSQL](https://www.postgresql.org/) as the production database. For a [variety of reasons](http://12factor.net/dev-prod-parity), it's not wise to use different databases in different environments. So to avoid future problems let's setup PostgreSQL locally.
 
-I assume you already have PostgreSQL installed. If not, then you can follow the instructions [here](https://www.postgresql.org/download/linux/ubuntu/) for your distribution. (*I may write a post on this for Ubuntu 14.04 in the future.*)
+I assume you already have PostgreSQL installed. If not, then you can follow the instructions [here](https://www.postgresql.org/download/linux/ubuntu/) for your distribution.
 
 **Step 1**
 
@@ -120,9 +121,12 @@ Update your `requirements.txt` file and commit all your changes to this point.
 
 ## Resources
 
-- [Settings](https://docs.djangoproject.com/en/1.9/ref/settings/)
-  - [DATABASES](https://docs.djangoproject.com/en/1.9/ref/settings/#databases)
-- [django-admin]()
-  - [migrate](https://docs.djangoproject.com/en/1.9/ref/django-admin/#django-admin-migrate)
-  - [createsuperuser](https://docs.djangoproject.com/en/1.9/ref/django-admin/#django-admin-createsuperuser)
-  - [runserver](https://docs.djangoproject.com/en/1.9/ref/django-admin/#django-admin-runserver)
+- [Django Girls Tutorial](http://tutorial.djangogirls.org/en/)
+- [Django Documentation](https://docs.djangoproject.com/en/1.9/)
+  - [Settings](https://docs.djangoproject.com/en/1.9/ref/settings/)
+    - [DATABASES](https://docs.djangoproject.com/en/1.9/ref/settings/#databases)
+  - [django-admin](https://docs.djangoproject.com/en/1.9/ref/django-admin/)
+    - [migrate](https://docs.djangoproject.com/en/1.9/ref/django-admin/#django-admin-migrate)
+    - [createsuperuser](https://docs.djangoproject.com/en/1.9/ref/django-admin/#django-admin-createsuperuser)
+    - [runserver](https://docs.djangoproject.com/en/1.9/ref/django-admin/#django-admin-runserver)
+- [requirements.txt](https://pip.pypa.io/en/stable/user_guide/#requirements-files)

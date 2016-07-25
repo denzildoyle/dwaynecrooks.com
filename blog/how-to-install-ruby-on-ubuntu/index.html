@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="generator" content="Nanoc 4.2.3">
+    <title>
+      
+        How to install Ruby on Ubuntu - 
+      
+      Dwayne Crooks
+    </title>
+    <link rel="stylesheet" href="/stylesheets/all.css">
+  </head>
+  <body>
+    
+
+    <div class="mt2 mx2">
+  <header class="center">
+    
+    <a href="/blog" title="Read more posts">
+    
+      <img class="circle" alt="A picture of Dwayne" src="https://www.gravatar.com/avatar/8e5e8015f4baa06f4de88e4a9de7a601?s=75">
+    </a>
+    <p>
+      My blog on software development, Python, Django, Ruby, React, Redux and whatnot.
+    </p>
+  </header>
+
+  <div class="my4 max-width-3 mx-auto">
+  <article class="Post">
+    <header>
+      <h1 class="mb2 fs-large">How to install Ruby on Ubuntu</h1>
+      <div class="light-gray"><time datetime="2016-06-28 22:37:22 UTC">June 28th, 2016</time></div>
+    </header>
+    <div class="Post__body">
+      <p><a href="https://www.ruby-lang.org">Ruby</a> is a dynamically typed, object-oriented, open source programming language with a focus on simplicity and productivity. However, it can be quite challenging to get Ruby installed and set up correctly. So, in this post, I'd walk you through how I do it using Ubuntu 14.04 LTS.</p>
+<h2>Tools</h2>
+<p>I'll be using <a href="https://github.com/rbenv/rbenv">rbenv</a>,
+<a href="https://github.com/rbenv/ruby-build">ruby-build</a> and
+<a href="http://bundler.io/">Bundler</a>. Alternatives to <a href="https://github.com/rbenv/rbenv">rbenv</a> include <a href="http://rvm.io/">rvm</a> and <a href="https://github.com/postmodern/chruby">chruby</a> but I won't be talking about those today.</p>
+<h2>Install rbenv</h2>
+<p><strong>N.B.</strong> <em>You'd need to have <a href="https://git-scm.com/">Git</a> installed to follow this process. Go here to see <a href="/blog/how-to-install-and-configure-git-on-ubuntu">how to install and configure Git on Ubuntu </a>.</em></p>
+<pre><code class="language-bash"><span class="gp">$ </span>git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+<span class="gp">$ </span><span class="nb">echo</span> <span class="s1">'export PATH="$HOME/.rbenv/bin:$PATH"'</span> &gt;&gt; ~/.bashrc
+<span class="gp">$ </span><span class="nb">echo</span> <span class="s1">'eval "$(rbenv init -)"'</span> &gt;&gt; ~/.bashrc
+<span class="gp">$ </span>. ~/.bashrc
+
+<span class="c"># Check if rbenv was set up</span>
+<span class="gp">$ </span><span class="nb">type </span>rbenv
+rbenv is a <span class="k">function</span></code></pre>
+<p>For more details you can read <a href="https://github.com/rbenv/rbenv#basic-github-checkout">here</a>.</p>
+<h2>Install Ruby</h2>
+<p>The <a href="https://github.com/rbenv/ruby-build">ruby-build</a> plugin for <a href="https://github.com/rbenv/rbenv">rbenv</a> handles that task. Let's install it and then we'd be able to use <code>rbenv install</code> to install the version of Ruby we want to use.</p>
+<pre><code class="language-bash"><span class="gp">$ </span>git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build</code></pre>
+<p>Now, let's list the available Ruby versions and install one of them.</p>
+<pre><code class="language-bash"><span class="gp">$ </span>rbenv install --list
+Available versions:
+  1.9.3-p551
+  2.3.1
+  2.4.0-dev
+  2.4.0-preview1
+  jruby-9.1.2.0
+  maglev-1.0.0
+  rbx-3.42
+  ...
+
+<span class="c"># Install dependencies</span>
+<span class="gp">$ </span>sudo apt-get install -y build-essential libssl-dev libreadline-dev zlib1g-dev
+
+<span class="gp">$ </span>rbenv install 2.3.1
+
+<span class="c"># Switch to the installed version</span>
+<span class="gp">$ </span>rbenv global 2.3.1
+
+<span class="c"># Ensure all shims are in-place</span>
+<span class="gp">$ </span>rbenv rehash</code></pre>
+<h2>Upgrade RubyGems</h2>
+<pre><code class="language-bash"><span class="gp">$ </span>gem update --system</code></pre>
+<h2>Install Bundler</h2>
+<pre><code class="language-bash"><span class="gp">$ </span>gem install bundler</code></pre>
+<h2>An example</h2>
+<p>Create a directory and <code>cd</code> into it.</p>
+<pre><code class="language-bash"><span class="gp">$ </span>mkdir first <span class="o">&amp;&amp;</span> <span class="nb">cd </span>first</code></pre>
+<p>Add a <code>Gemfile</code>.</p>
+<pre><code class="language-ruby"><span class="c1"># Gemfile</span>
+
+<span class="n">source</span> <span class="s2">"https://rubygems.org"</span>
+
+<span class="n">gem</span> <span class="s2">"roda"</span>
+<span class="n">gem</span> <span class="s2">"rack"</span></code></pre>
+<p>Add a <code>config.ru</code>.</p>
+<pre><code class="language-ruby"><span class="c1"># config.ru</span>
+
+<span class="nb">require</span> <span class="s2">"roda"</span>
+
+<span class="k">class</span> <span class="nc">App</span> <span class="o">&lt;</span> <span class="no">Roda</span>
+  <span class="n">route</span> <span class="k">do</span> <span class="o">|</span><span class="n">r</span><span class="o">|</span>
+    <span class="n">r</span><span class="p">.</span><span class="nf">root</span> <span class="p">{</span> <span class="s2">"Hello, world!"</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">run</span> <span class="no">App</span><span class="p">.</span><span class="nf">freeze</span><span class="p">.</span><span class="nf">app</span></code></pre>
+<p>Finally, install the dependencies and run the web application.</p>
+<pre><code class="language-bash"><span class="gp">$ </span>bundle install
+<span class="gp">$ </span>bundle <span class="nb">exec </span>rackup</code></pre>
+<p>Open your browser and navigate to <a href="http://localhost:9292/">http://localhost:9292/</a>. That's it.</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://robots.thoughtbot.com/using-rbenv-to-manage-rubies-and-gems">Using rbenv to Manage Rubies and Gems</a></li>
+<li><a href="https://cbednarski.com/articles/installing-ruby/">Installing Ruby the Correct Way</a></li>
+</ul>
+
+    </div>
+  </article>
+</div>
+
+
+  <footer class="center">
+    <p>
+      Copyright &copy; 2016
+      <a href="/">Dwayne Crooks</a>.
+    </p>
+    <ul class="list-reset">
+      <li class="inline-block mr1">
+        <a href="https://github.com/dwayne" target="_blank" title="Me on GitHub">
+          GitHub
+        </a>
+      </li>
+      <li class="inline-block mr1">
+        <a href="https://twitter.com/dwaynecrooks" target="_blank" title="Me on Twitter">
+          Twitter
+        </a>
+      </li>
+      <li class="inline-block">
+        <a href="mailto:me@dwaynecrooks.com" target="_blank" title="How can I help you?">
+          Email
+        </a>
+      </li>
+    </ul>
+  </footer>
+</div>
+
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-48307662-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

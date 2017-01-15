@@ -10,6 +10,10 @@ p{
 	font-weight: 100;
 }
 
+.clear-col-right{
+	margin-right: 0;
+}
+
 h1{
 	text-transform: uppercase;
 	font-size: 50px;
